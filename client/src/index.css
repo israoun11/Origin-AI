@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-ivory font-sans text-espresso antialiased; }
+  h1, h2, h3 { @apply font-serif font-medium; }
+  :focus-visible { outline: 2px solid #72513B; outline-offset: 3px; }
+  .on-dark :focus-visible { outline-color: #C6AD8B; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+}
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-14; }
+  .btn { @apply inline-flex items-center justify-center gap-2 border px-7 py-3.5 text-sm font-medium tracking-wide transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-dark { @apply border-espresso bg-espresso text-ivory hover:bg-roast hover:border-roast; }
+  .btn-light { @apply border-ivory bg-ivory text-espresso hover:bg-champagne hover:border-champagne; }
+  .btn-line { @apply border-espresso/40 text-espresso hover:border-espresso hover:bg-espresso hover:text-ivory; }
+  .btn-line-light { @apply border-ivory/50 text-ivory hover:bg-ivory hover:text-espresso; }
+  .label { @apply text-[13px] tracking-label text-roast; }
+  .field { @apply w-full border border-espresso/25 bg-white/60 px-4 py-3 text-sm outline-none transition-colors focus:border-espresso; }
+  .field-error { @apply mt-1 text-xs text-red-800; }
+  .display { @apply font-serif leading-[0.95] tracking-tight; }
+}
+@media print {
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; }
+}
